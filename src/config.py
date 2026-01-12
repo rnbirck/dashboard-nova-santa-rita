@@ -5,7 +5,7 @@ municipios_de_interesse = [
     "Nova Santa Rita",
     "Taquari",
 ]
-anos_de_interesse = tuple(range(2021, 2026))
+anos_de_interesse = tuple(range(2021, 2027))
 
 anos_historico = tuple(range(min(anos_de_interesse) - 1, max(anos_de_interesse) + 1))
 
