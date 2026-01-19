@@ -87,6 +87,7 @@ from dashboard_core.data_loader import (  # noqa: E402 # type: ignore
     carregar_dados_estoque_grau_instrucao,
     carregar_dados_estoque_sexo,
     carregar_dados_renda_municipios,  # noqa: E402
+    carregar_dados_renda_ranking,  # noqa: E402
     carregar_dados_renda_cnae,  # noqa: E402
     carregar_dados_renda_sexo,  # noqa: E402
     carregar_dados_renda_faixa_salarial,  # noqa: E402
@@ -234,6 +235,9 @@ def main():
             municipio=municipio_de_interesse, anos=anos_de_interesse
         )
         df_renda = carregar_dados_renda_municipios(
+            municipios=municipios_de_interesse, anos=anos_de_interesse
+        )
+        df_renda_ranking = carregar_dados_renda_ranking(
             municipios=municipios_de_interesse, anos=anos_de_interesse
         )
         df_renda_cnae = carregar_dados_renda_cnae(
@@ -484,6 +488,9 @@ def main():
     df_renda_filtrado = df_renda[
         df_renda["municipio"].isin(municipios_selecionados_global)
     ]
+    df_renda_ranking_filtrado = df_renda_ranking[
+        df_renda_ranking["municipio"].isin(municipios_selecionados_global)
+    ]
     df_mei_total_filtrado = df_mei_total[
         df_mei_total["municipio"].isin(municipios_selecionados_global)
     ]
@@ -693,6 +700,7 @@ def main():
                 df_estoque_grau_instrucao=df_estoque_grau_instrucao,
                 df_estoque_sexo=df_estoque_sexo,
                 df_renda_mun=df_renda_filtrado,
+                df_renda_ranking=df_renda_ranking_filtrado,
                 df_renda_cnae=df_renda_cnae,
                 df_renda_sexo=df_renda_sexo,
                 df_renda_faixa_salarial=df_renda_faixa_salarial,
